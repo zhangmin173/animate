@@ -1,0 +1,15 @@
+#忽略整个文件夹
+/node_modules
+/runtime
+/src/assets/css
+/src/assets/prod
+
+#忽略配置文件
+.env*
+.DS_Store
+.idea
+*.psd
+*.zip
+.phpintel
+Thumbs.db
+package-lock.json
