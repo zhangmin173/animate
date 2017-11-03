@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>星级评分</title>
+    <script src="./assets/lib/jquery/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="./assets/css/star_rating/index.css">
     <script src="./assets/prod/star_rating/index.js"></script>
 </head>
 <body>
-    
+    <ul class="m-star">
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+    </ul>
+    <script>
+        var light = new Light('.m-star',{
+            num: 1
+        })
+        console.log(light)
+        light.init()
+    </script>
 </body>
 </html>

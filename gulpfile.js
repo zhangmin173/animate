@@ -1,13 +1,14 @@
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')();
 
-var root = './src/assets/';
+var root = './src/assets';
 
 var path = {
-    less: './src/assets/less/',
-    css: './src/assets/css/',
-    dev: './src/assets/dev/',
-    prod: './src/assets/prod/'
+    less: root + '/less/',
+    css: root + '/css/',
+    dev: root + '/dev/',
+    prod: root + '/prod/',
+    lib: root + '/lib/'
 }
 
 gulp.task('css', () => {
@@ -36,6 +37,17 @@ gulp.task('js', () => {
             .pipe($.uglify())
             .pipe($.rename({ suffix: '.min' }))
             .pipe(gulp.dest(path.prod));
+});
+
+gulp.task('lib', () => {
+    return gulp.src([path.lib + '**/*.js','!' + path.lib + '**/*.min.js'])
+            .pipe($.plumber({ errHandler: e => {
+                gutil.beep();
+                gutil.log(e);
+            }}))
+            .pipe($.uglify())
+            .pipe($.rename({ suffix: '.min' }))
+            .pipe(gulp.dest(path.lib));
 });
 
 var d = new Date();
