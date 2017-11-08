@@ -10,7 +10,14 @@
     <script src="./assets/prod/star_rating/index.js"></script>
 </head>
 <body>
-    <ul class="m-star">
+    <ul id="star-1" class="m-star">
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+        <li class="m-star-item"></li>
+    </ul>
+    <ul id="star-2" class="m-star">
         <li class="m-star-item"></li>
         <li class="m-star-item"></li>
         <li class="m-star-item"></li>
@@ -18,11 +25,17 @@
         <li class="m-star-item"></li>
     </ul>
     <script>
-        var light = new Light('.m-star',{
-            num: 1
+        var light = new Light('#star-1',{
+            num: 1,
+            readOnly: false
         })
-        console.log(light)
         light.init()
+
+        var light2 = new Light('#star-2',{
+            num: 4,
+            readOnly: true
+        })
+        light2.init()
     </script>
 </body>
 </html>
